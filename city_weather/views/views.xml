@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="city_weather_list">
+            <field name="name">city_weather_list</field>
+            <field name="model">city.weather</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="city"/>
+                    <field name="state"/>
+                    <field name="date"/>
+                    <field name="humidity"/>
+                    <field name="temperature_c"/>
+                    <field name="uom_temperature_c"/>
+                    <field name="temperature_f"/>
+                    <field name="uom_temperature_f"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="city_weather_form">
+            <field name="name">city_weather_form</field>
+            <field name="model">city.weather</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="city" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="state"/>
+                            <field name="date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="humidity" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="temperature_c" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="uom_temperature_c"/>
+                            <field name="temperature_f"/>
+                            <field name="uom_temperature_f"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="city_weather_action_window">
+            <field name="name">city_weather window</field>
+            <field name="res_model">city.weather</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="city_weather.action_server">
+              <field name="name">city_weather server</field>
+              <field name="model_id" ref="model_city_weather_city_weather"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+
+        <menuitem name="city_weather" id="city_weather_menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu 1" id="city_weather_menu_1" parent="city_weather_menu_root"
+                  action="city_weather_action_window"/>
+
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="city_weather.menu_1_list" parent="city_weather.menu_1"
+                      action="city_weather.action_window"/>
+            <menuitem name="Server to list" id="city_weather" parent="city_weather.menu_2"
+                      action="city_weather.action_server"/>
+        -->
+    </data>
+</odoo>
