@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="city_wizard">
+            <field name="name">city_weather_wizard</field>
+            <field name="model">upload.weather.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+
+                        <field name="weather_file"/>
+                        <field name="weather_file_name"/>
+                        <field name="parsed"/>
+                        <field name="uploaded"/>
+                        <field name="weather_line_ids"><tree>
+                            <field name="city_name"/>
+                            <field name="upload_weather_wizard_id"/>
+                            <field name="temperature_c"/>
+                            <field name="humidity"/>
+                            <field name="date"/>
+                            <field name="error_description"/>
+                            <field name="can_load"/>
+                        </tree></field>
+                        </group>
+<!--                        <button name="o_k" type="object" class="oe_highlight">OK</button>-->
+<!--                        <button name="cancel" type="object" class="oe_highlight">Cancel</button>-->
+                        <button name="upload_weather"
+                                type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|',('uploaded', '=', True),('parsed','=',False)]}">Upload Weather</button>
+                        <button name="parse_weather_file"
+                                type="object"
+                                 attrs="{'invisible': ['|',('parsed', '=', True),('weather_file','=',False)]}"
+                                class="oe_highlight">Parse Weather File</button>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_wizard_city" model="ir.actions.act_window">
+            <field name="name">upload_city</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">upload.weather.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="city_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

@@ -4,14 +4,17 @@ from odoo import models, fields, api
 class CityWeather(models.Model):
     _name = 'city.weather'
     _description = 'city_weather'
+
     def default_fahrenheit(self):
-        fahrenheit = self.env['uom.uom'].search([('name','=','F')]).id
+        fahrenheit = self.env['uom.uom'].search([('name', '=', 'F')]).id
         return fahrenheit
+
     def default_celsium(self):
-        celsium = self.env['uom.uom'].search([('name','=','C')]).id
+        celsium = self.env['uom.uom'].search([('name', '=', 'C')]).id
         return celsium
+
     city = fields.Many2one(comodel_name='res.city', required=True, index=True)
-    state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed')])
+    state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed')], default='draft')
     date = fields.Date(required=True, index=True)
     humidity = fields.Float(required=True, digits=(16, 2))
     temperature_c = fields.Float(digits=(16, 2), required=True, string="Celsius",
@@ -31,6 +34,7 @@ class CityWeather(models.Model):
                                         readonly=True
                                         )
 
-    # _sql_constraints = [
-    #     ('name_company_uniq', 'unique(name, type_tax_use, chart_template_id)', 'Tax names must be unique !'),
-    # ]
+    _sql_constraints = [
+        ('city_date_uniq', 'unique (city, date)',
+         "The city and date must be unique.")
+    ]
