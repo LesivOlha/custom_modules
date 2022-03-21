@@ -8,11 +8,43 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="lname"/>
                     <field name="type"/>
                     <field name="address"/>
+                    <field name="phone" invisible="1"/>
                     <field name="people_ids"/>
                     <field name="description"/>
                 </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="school_module_form">
+            <field name="name">school_module_form</field>
+            <field name="model">school.module</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="lname"/>
+                            <field name="type"/>
+                            <field name="address"/>
+                            <field name="phone" invisible="1"/>
+                            <field name="people_ids"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="school_module_form_inherit">
+            <field name="name">school_test_form</field>
+            <field name="model">school.module</field>
+            <field name="inherit_id" ref="school_module.school_module_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('olha_test') ])]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
             </field>
         </record>
 
@@ -28,6 +60,8 @@
                             <field name="name"/>
                             <field name="last_name"/>
                             <field name="date"/>
+                            <field name="text"/>
+                            <field name="good_date"/>
                             <field name="type"/>
                             <field name="institution_id"/>
                             <field name="group"/>
