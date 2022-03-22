@@ -16,6 +16,7 @@
             <field name="name">F</field>
             <field name="factor" eval="1.0"/>
             <field name="rounding" eval="0.001"/>
+            <field name="uom_type">smaller</field>
         </record>
     </data>
 </odoo>
