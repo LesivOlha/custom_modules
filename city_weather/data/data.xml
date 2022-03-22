@@ -1,18 +1,18 @@
 <?xml version="1.0" ?>
 <odoo>
     <data noupdate="1">
-    <record id="product_uom_categ_temparature" model="uom.category">
-            <field name="name">Temparature</field>
-            <field name="measure_type">temparature</field>
+    <record id="product_uom_categ_temperature" model="uom.category">
+            <field name="name">Temperature</field>
+            <field name="measure_type">temperature</field>
         </record>
         <record id="product_uom_celsium" model="uom.uom">
-            <field name="category_id" ref="product_uom_categ_temparature"/>
+            <field name="category_id" ref="product_uom_categ_temperature"/>
             <field name="name">C</field>
             <field name="factor" eval="1.0"/>
             <field name="rounding" eval="0.001"/>
         </record>
         <record id="product_uom_fahrenheit" model="uom.uom">
-            <field name="category_id" ref="product_uom_categ_temparature"/>
+            <field name="category_id" ref="product_uom_categ_temperature"/>
             <field name="name">F</field>
             <field name="factor" eval="1.0"/>
             <field name="rounding" eval="0.001"/>

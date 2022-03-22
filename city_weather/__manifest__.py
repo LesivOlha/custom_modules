@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','base_address_city'],
+    'depends': ['base','base_address_city', 'uom'],
 
     # always loaded
     'data': [

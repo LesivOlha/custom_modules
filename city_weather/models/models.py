@@ -1,6 +1,12 @@
 from odoo import models, fields, api
 
 
+class UoMCategory(models.Model):
+    _inherit = 'uom.category'
+
+    measure_type = fields.Selection(selection_add=[('temperature', 'Default Temperature')])
+
+
 class CityWeather(models.Model):
     _name = 'city.weather'
     _description = 'city_weather'
