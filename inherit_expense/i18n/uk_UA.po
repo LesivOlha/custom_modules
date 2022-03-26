@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* inherit_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-26 17:19+0000\n"
+"PO-Revision-Date: 2022-03-26 17:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_hr_expense__casa
+msgid "Casa"
+msgstr "Каса"
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__id
+msgid "ID"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_hr_expense__many
+msgid "Many"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_hr_expense__mort
+msgid "Mort"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_my_table__name
+msgid "Name"
+msgstr ""
+
+#. module: inherit_expense
+#: model_terms:ir.ui.view,arch_db:inherit_expense.inherit_expense_list
+msgid "Payment"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model.fields,field_description:inherit_expense.field_hr_expense__test
+msgid "Test"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model,name:inherit_expense.model_hr_expense
+msgid "inherit_expense"
+msgstr ""
+
+#. module: inherit_expense
+#: model:ir.model,name:inherit_expense.model_my_table
+msgid "my.table"
+msgstr ""
