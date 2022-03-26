@@ -29,7 +29,7 @@
                             <field name="type"/>
                             <field name="address"/>
                             <field name="phone" invisible="1"/>
-                            <field name="people_ids"/>
+                            <field name="people_ids" widget="many2many_tags"/>
                             <field name="description"/>
                         </group>
                     </sheet>
