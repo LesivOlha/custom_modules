@@ -2,6 +2,11 @@
 
 from odoo import models, fields, api
 
+class MyMany2many(models.Model):
+    _name = 'my.table'
+
+    name = fields.Char()
+
 
 class InheritExpense(models.Model):
     _inherit = 'hr.expense'
@@ -10,6 +15,10 @@ class InheritExpense(models.Model):
     test = fields.Char()
     mort = fields.Text()
     casa = fields.Char()
+    many = fields.Many2many('my.table')
+
+
+
 
 
     def write(self, vals):
