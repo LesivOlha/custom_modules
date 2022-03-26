@@ -12,9 +12,9 @@ class InheritExpense(models.Model):
     _inherit = 'hr.expense'
     _description = 'inherit_expense'
 
-    test = fields.Char()
+    test = fields.Char(default=lambda self: self.env.company.id)
     mort = fields.Text()
-    casa = fields.Char()
+    casa = fields.Char(default=lambda self: self.env.company.name)
     many = fields.Many2many('my.table')
 
 
