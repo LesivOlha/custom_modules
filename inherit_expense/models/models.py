@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+
 class MyMany2many(models.Model):
     _name = 'my.table'
 
@@ -17,10 +18,6 @@ class InheritExpense(models.Model):
     casa = fields.Char(default=lambda self: self.env.company.name)
     many = fields.Many2many('my.table')
 
-
-
-
-
     def write(self, vals):
         vals['casa'] = 'Casa'
         res = super(InheritExpense, self).write(vals)
@@ -31,7 +28,6 @@ class InheritExpense(models.Model):
         vals['test'] = 'testing'
         res = super(InheritExpense, self).create(vals)
         return res
-
 
     @api.model
     def default_get(self, vals):

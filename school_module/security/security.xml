@@ -5,6 +5,7 @@
         <field name="description">testing</field>
         <field name="sequence">3</field>
     </record>
+
     <record id="olha_test" model="res.groups">
         <field name="name">Olha test</field>
         <field name="category_id" ref="module_category_olha_test"/>

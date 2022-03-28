@@ -1,7 +1,5 @@
 <odoo>
     <data>
-        <!-- explicit list view definition -->
-
         <record model="ir.ui.view" id="inherit_expense_list">
             <field name="name">inherit_expense list</field>
             <field name="model">hr.expense</field>
@@ -19,12 +17,11 @@
                     <attribute name="readonly">1</attribute>
                     <attribute name="string">Payment</attribute>
                 </xpath>
-<!--                <xpath expr="//field[@name='product_id']" position="attributes">-->
-<!--                    <attribute name="widget">many2many_tags</attribute>-->
-<!--                </xpath>-->
-                 <xpath expr="//field[@name='quantity']" position="replace"/>
+                <xpath expr="//field[@name='product_id']" position="attributes">-->
+                    <attribute name="widget">many2many_tags</attribute>-->
+                </xpath>
+                <xpath expr="//field[@name='quantity']" position="replace"/>
             </field>
         </record>
-
     </data>
 </odoo>

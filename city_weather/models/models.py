@@ -39,7 +39,6 @@ class CityWeather(models.Model):
                                         required=True,
                                         readonly=True
                                         )
-
     _sql_constraints = [
         ('city_date_uniq', 'unique (city, date)',
          "The city and date must be unique.")

@@ -4,15 +4,14 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-class schoolModule(models.Model):
+class SchoolModule(models.Model):
     _name = 'school.module'
     _description = 'school_module'
 
     @api.depends('name')
     def one_changes(self):
         for record in self:
-            if record.name:
-                record.lname = 'add a comment ' + record.name
+            record.lname = 'add a comment ' + record.lname if record.lname else ''
 
     name = fields.Char('Hello')
     lname = fields.Char('add a comment', compute=one_changes, store=True)
@@ -25,7 +24,7 @@ class schoolModule(models.Model):
     description = fields.Text()
 
 
-class peopleModule(models.Model):
+class PeopleModule(models.Model):
     _name = 'people.module'
     _description = 'people_module'
 
@@ -42,10 +41,7 @@ class peopleModule(models.Model):
 
     def _auto_text(self):
         for rec in self.search([]):
-            if rec.text:
-                rec.text += "Слава Україні"
-            else:
-                rec.text = "Слава Україні"
+            rec.text = rec.text + "Слава Україні" if rec.text else "Слава Україні"
 
     @api.constrains('date')
     def two_changes(self):
@@ -57,9 +53,3 @@ class peopleModule(models.Model):
     def tree_changes(self):
         for record in self:
             record.last_name = record.name
-
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100

@@ -7,7 +7,7 @@ from datetime import datetime
 
 class CityWeatherWizard(models.TransientModel):
     _name = 'upload.weather.wizard'
-    _description = 'city_weather'
+    _description = 'upload.weather.wizard'
 
     weather_file = fields.Binary(required=True)
     weather_file_name = fields.Char()
@@ -19,9 +19,7 @@ class CityWeatherWizard(models.TransientModel):
         csv_data = base64.b64decode(self.weather_file)
         data_file = io.StringIO(csv_data.decode("utf-8"))
         data_file.seek(0)
-        file_reader = []
-        # csv_reader = csv.reader(data_file, delimiter=',')
-        # file_reader.extend(csv_reader)
+
         date_csv = csv.DictReader(data_file)
         result = []
         for i in date_csv:
@@ -72,7 +70,6 @@ class CityWeatherWizard(models.TransientModel):
                                                                  'date': i.date,
                                                                  'humidity': i.humidity,
                                                                  'temperature_c': i.temperature_c})
-
                 else:
 
                     city_id = self.env['res.city'].create({'name': i.city_name, 'country_id': 229})
@@ -94,7 +91,7 @@ class CityWeatherWizard(models.TransientModel):
 
 class UploadWeatherWizardLine(models.TransientModel):
     _name = 'upload.weather.wizard.line'
-    _description = 'city_weather'
+    _description = 'upload.weather.wizard.line'
     upload_weather_wizard_id = fields.Many2one(comodel_name='upload.weather.wizard', readonly=True)
     city_name = fields.Char(readonly=True)
     temperature_c = fields.Char(readonly=True)
