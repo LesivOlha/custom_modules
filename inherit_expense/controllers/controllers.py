@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+
+from odoo import http
 
 
-# class InheritExpense(http.Controller):
-#     @http.route('/inherit_expense/inherit_expense/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class InheritExpense(http.Controller):
+    @http.route('/inherit_expense/', auth='public')
+    def index(self, **kw):
+        return "Hello, world"
 
 #     @http.route('/inherit_expense/inherit_expense/objects/', auth='public')
 #     def list(self, **kw):
