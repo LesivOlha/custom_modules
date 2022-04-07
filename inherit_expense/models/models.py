@@ -9,6 +9,13 @@ class MyMany2many(models.Model):
     name = fields.Char()
 
 
+class InheritProduct(models.Model):
+    _inherit = 'product.template'
+    _description = 'product_template'
+
+    opt = fields.Integer()
+
+
 class InheritExpense(models.Model):
     _inherit = 'hr.expense'
     _description = 'inherit_expense'
